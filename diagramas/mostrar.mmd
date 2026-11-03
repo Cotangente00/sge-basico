@@ -1,0 +1,21 @@
+flowchart TD
+    A([Inicio Mostrar]) --> B{"¿total_estudiantes = 0?"}
+    B -- Sí --> C[/"Mostrar: No hay<br/>estudiantes registrados"/]
+    C --> Z([Fin Mostrar])
+    B -- No --> D[/"Leer orden (1 o 2)"/]
+    D --> E["suma ← 0<br/>aprobados ← 0"]
+    E --> F{"¿orden = 1?"}
+    F -- Sí --> G["i ← 0 (ascendente)"]
+    F -- No --> H["i ← n - 1 (descendente)"]
+    G --> I{"¿i < n?"}
+    I -- Sí --> J[/"mostrarEstudiante(lista[i])"/]
+    J --> K["suma ← suma + promedio<br/>si promedio ≥ 3.0: aprobados + 1<br/>i ← i + 1"]
+    K --> I
+    H --> L{"¿i ≥ 0?"}
+    L -- Sí --> M[/"mostrarEstudiante(lista[i])"/]
+    M --> N["suma ← suma + promedio<br/>si promedio ≥ 3.0: aprobados + 1<br/>i ← i - 1"]
+    N --> L
+    I -- No --> O["promedio_general ← suma / n"]
+    L -- No --> O
+    O --> P[/"Mostrar total, aprobados<br/>y promedio general"/]
+    P --> Z

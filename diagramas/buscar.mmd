@@ -1,0 +1,17 @@
+flowchart TD
+    A([Inicio Buscar]) --> B{"¿total_estudiantes = 0?"}
+    B -- Sí --> C[/"Mostrar: No hay<br/>estudiantes para buscar"/]
+    C --> Z([Fin Buscar])
+    B -- No --> D[/"Leer ID a buscar"/]
+    D --> E["encontrado ← Falso<br/>posición ← -1<br/>i ← 0"]
+    E --> F{"¿i < n Y<br/>encontrado = Falso?"}
+    F -- Sí --> G{"¿lista[i].id = ID?"}
+    G -- Sí --> H["encontrado ← Verdadero<br/>posición ← i"]
+    G -- No --> I["i ← i + 1"]
+    H --> I
+    I --> F
+    F -- No --> J{"¿posición ≠ -1?"}
+    J -- Sí --> K[/"Mostrar: Estudiante encontrado<br/>mostrarEstudiante(lista[posición])"/]
+    J -- No --> L[/"Mostrar: No existe un<br/>estudiante con ese ID"/]
+    K --> Z
+    L --> Z

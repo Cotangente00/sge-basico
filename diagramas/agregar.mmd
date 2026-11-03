@@ -1,0 +1,17 @@
+flowchart TD
+    A([Inicio Agregar]) --> B{"¿total_estudiantes ≥<br/>MAX_ESTUDIANTES?"}
+    B -- Sí --> C[/"Mostrar: No se pueden<br/>registrar más estudiantes"/]
+    C --> Z([Retornar total_estudiantes])
+    B -- No --> D[/"Leer ID (entero ≥ 1)"/]
+    D --> E{"¿El ID ya existe<br/>en la lista?"}
+    E -- Sí --> F[/"Mostrar: ID repetido,<br/>ingrese otro"/]
+    F --> D
+    E -- No --> G[/"Leer nombre y programa<br/>(no vacíos)"/]
+    G --> H[/"Leer promedio"/]
+    H --> I{"¿0.0 ≤ promedio ≤ 5.0?"}
+    I -- No --> J[/"Mostrar: valor fuera<br/>de rango"/]
+    J --> H
+    I -- Sí --> K["Crear estudiante {id, nombre,<br/>programa, promedio}<br/>Agregar a la lista"]
+    K --> L["total_estudiantes ←<br/>total_estudiantes + 1"]
+    L --> M[/"Mostrar: Estudiante agregado"/]
+    M --> Z

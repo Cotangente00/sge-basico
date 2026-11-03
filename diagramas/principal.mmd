@@ -1,0 +1,22 @@
+flowchart TD
+    A([Inicio]) --> B["estudiantes ← lista vacía<br/>total_estudiantes ← 0<br/>bandera_salir ← Falso"]
+    B --> C{"¿bandera_salir = Falso?"}
+    C -- Sí --> D[/"Mostrar menú:<br/>1. Agregar  2. Mostrar<br/>3. Buscar  4. Salir"/]
+    D --> E[/"Leer opción"/]
+    E --> V{"¿opción es un<br/>número entero?"}
+    V -- No --> VE[/"Mostrar: Debe ingresar<br/>un número entero"/]
+    VE --> E
+    V -- Sí --> F{"opción"}
+    F -- 1 --> G[["Agregar estudiante<br/>(total_estudiantes ← total_estudiantes + 1)"]]
+    F -- 2 --> H[["Mostrar estudiantes"]]
+    F -- 3 --> I[["Buscar estudiante por ID"]]
+    F -- 4 --> J["bandera_salir ← Verdadero"]
+    F -- Otro --> K[/"Mostrar: Opción no válida"/]
+    G --> R
+    H --> R
+    I --> R
+    J --> R
+    K --> R
+    R((1)) --> C
+    C -- No --> L[/"Mostrar: Saliendo del sistema<br/>y total_estudiantes"/]
+    L --> M([Fin])
